@@ -27,6 +27,21 @@
                 }
             ?>
             <a href="pages/Lcarrello.php">Carrello</a>
+            <div class="cart-box">
+                <table>
+                    <tr><td>Numero</td><td>:</td><td>1</td></tr>
+                    <tr><td>Costo</td><td>:</td><td>30</td></tr>
+                </table>
+                <div class="shop">
+                    <img class="cart-img" src="img/cart.png"></img>
+                    <div class="cart-preview">
+                        <div class="cart-row">
+                            <img src="img/0.jpg"></img>
+                            <p> bimba</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="big-container" id="main">
             
