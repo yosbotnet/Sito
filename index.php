@@ -27,7 +27,23 @@
                 }
             ?>
             <a href="pages/carrello.php">Carrello</a>
+            <div class="cart-box">
+                <table>
+                    <tr><td>Numero</td><td>:</td><td>1</td></tr>
+                    <tr><td>Costo</td><td>:</td><td>30</td></tr>
+                </table>
+                <div class="shop">
+                    <img class="cart-img" src="img/cart.png"></img>
+                    <div class="cart-preview">
+                        <div class="cart-row">
+                            <img src="img/0.jpg"></img>
+                            <p> bimba</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
+        <h1>BARO'S COPIUM</h1>
         <div class="big-container" id="main">
             
         </div>
@@ -50,5 +66,5 @@
             ?>
         </footer>
     </body>
-    <script type="text/babel" src="js/main.jsx"></script>
+    <script type="text/babel" src="js/test.jsx"></script>
 </html>

@@ -26,7 +26,7 @@
                     
                 }
             ?>
-            <a href="pages/Lcarrello.php">Carrello</a>
+            <a href="pages/carrello.php">Carrello</a>
             <div class="cart-box">
                 <table>
                     <tr><td>Numero</td><td>:</td><td>1</td></tr>
@@ -43,6 +43,7 @@
                 </div>
             </div>
         </div>
+        <h1>BARO'S COPIUM</h1>
         <div class="big-container" id="main">
             
         </div>

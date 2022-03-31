@@ -22,8 +22,8 @@
                 $pdo->exec("CREATE TABLE utente(codice varchar(32) primary key, nome text, cognome text, mail text, password text, perms int)");
                 $pdo->exec("CREATE TABLE IF NOT EXISTS PRODOTTO(COD INT PRIMARY KEY not null AUTO_INCREMENT,NOME TEXT,PREZZO INT,des text,LINK text)");
                 $pdo->exec("CREATE TABLE IF NOT EXISTS ORDINE(ID_PROD INT,ID_UTENTE VARCHAR(32),QTA INT,CostoTot int, PRIMARY KEY(ID_PROD,ID_UTENTE),FOREIGN KEY(ID_PROD) REFERENCES PRODOTTO(COD),FOREIGN KEY(ID_UTENTE) REFERENCES UTENTE(CODICE))");
-                $pdo->exec("insert into prodotto values(1,'donna',70,'donna','img/0.jpg')");
-                $pdo->exec("insert into prodotto values(2,'bimba',35,'bimba','img/1.jpg')");
+                $pdo->exec("insert into prodotto values(1,'CringeVengers',70,'>War is le bad','img/1.webp')");
+                $pdo->exec("insert into prodotto values(2,'King',35,'nationalist king','img/0.webp')");
                 $pdo->exec("insert into utente values('cfcd208495d565ef66e7dff9f98764da','admin','admin','admin@admin.admin','21232f297a57a5a743894a0e4a801fc3',1)");
             }
         }

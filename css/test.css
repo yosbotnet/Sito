@@ -1,4 +1,12 @@
-
+@font-face {
+  font-family: title;
+  src: url(BlackishDemoRegular.ttf);
+}
+h1{
+  font-family:title;
+  text-align: center;
+  font-size:50px;
+}
 .divconta{
   display: flex;
   flex-direction: row;
@@ -135,6 +143,7 @@
     font-size: 15px;
     font-family: "Lato", sans-serif;
     cursor: pointer;
+    margin:10px;
     box-shadow: rgba(0, 9, 61, 0.2) 0px 4px 8px 0px;
   }
   
