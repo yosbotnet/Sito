@@ -21,6 +21,10 @@
                 <th>Perms</th>
             </tr>
             <?php
+            session_start();
+            if(!isset($_SESSION["PERMS"])||$_SESSION["PERMS"]!=1){
+                echo "<script>alert('ACCESSO NON PERMESSO');window.location.href='../index.php'</script>";
+            }
             $pdo = new PDO("mysql:host=localhost;port=7777","root","mysql");
             $pdo->exec("use eserciziologin");
             $utenti = $pdo->query("select * from utente");

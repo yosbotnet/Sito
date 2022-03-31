@@ -1,6 +1,6 @@
 <?php
-    define("SUCCESS_CODE",'10');
     require("functions.php");
+    session_start();
     $TABELLE=array("ordine","prodotto","utente");
     $pdo = new PDO("mysql:host=localhost;port=7777","root","mysql");
     $verifica = $pdo->query("USE eserciziologin");
@@ -137,6 +137,8 @@
                     try{
                       if($ut[0]["password"]==$pwd){
                         setcookie("COOK",encode($ut[0]["codice"],date("d/m/Y")." alle ore ".date("H:i:s")),(time() + 31536000) , '/');
+                        $_SESSION["USER"]=$ut[0]["codice"];
+                        $_SESSION["PERMS"]=$ut[0]["perms"];
                         echo "SUCCESS";
                     }
                     }catch(Exception $e){

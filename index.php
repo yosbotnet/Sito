@@ -13,13 +13,20 @@
     </head>
     <body>       
         <div class="topnav">
-            <a class="active" href="#home">Home</a>
-            <a href="pages/login.php">Login</a>
-            <a href="pages/registrati.php">Registrati</a>
-            <a href="pages/mostra_utenti.php">Mostra utenti</a>
-            <a href="" onclick='delete_cookie("COOK","/","localhost");'>Sloggati</a>
+        <a class="active" href="#home">Home</a>
+            <?php
+                session_start();
+                if(isset($_SESSION["USER"])){
+                    echo '<a href="pages/logout.php" onclick=\'delete_cookie("COOK","/","localhost");\'>Logout</a>';
+                    if(isset($_SESSION["PERMS"])&&$_SESSION["PERMS"]==1){
+                        echo '<a href="pages/nuovo_prodotto.php">Prodotto</a><a href="pages/mostra_utenti.php">Mostra utenti</a>';
+                    }
+                }else{
+                    echo '<a href="pages/login.php">Login</a><a href="pages/registrati.php">Registrati</a>';
+                    
+                }
+            ?>
             <a href="pages/carrello.php">Carrello</a>
-            <a href="pages/nuovo_prodotto.php">Prodotto</a>
         </div>
         <div class="big-container" id="main">
             
