@@ -1,0 +1,293 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+  }
+  /* Add a black background color to the top navigation */
+  .topnav {
+      background-color: #333;
+      overflow: hidden;
+    }
+    
+    /* Style the links inside the navigation bar */
+    .topnav a {
+      float: right;
+      color: #f2f2f2;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+      font-size: 17px;
+    }
+    
+    /* Change the color of links on hover */
+    .topnav a:hover {
+      background-color: #ddd;
+      color: black;
+    }
+    
+    /* Add a color to the active/current link */
+    .topnav a.active {
+      float: left;
+      background-color: #04AA6D;
+      color: white;
+    }
+  .center{
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .card{
+    width: 300px;
+    height: 450px;
+    border-color:darkviolet;
+    border-width: thin;
+    border-style: solid;
+    display: flex;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 1px;
+    justify-content: space-between;
+    flex-direction: column;
+  }
+  .btn_holder{
+      justify-content: flex-end;    
+      display: flex;
+  }
+  button{
+      margin: 50px;
+      font-family: inherit;
+      width: 60%;
+      height: 30px;
+      margin-left: auto;
+      margin-right: auto;
+  }
+  .fill {
+    font-size: 14px;
+    font-weight: 200;
+    letter-spacing: 1px;
+    padding: 10px;
+    outline: 0;
+    border: 1px solid black;
+    cursor: pointer;
+    position: relative;
+    background-color: rgba(0, 0, 0, 0);
+  }
+  
+  .fill::after {
+    content: "";
+    background-color: #ffe54c;
+    width: 100%;
+    z-index: -1;
+    position: absolute;
+    height: 100%;
+    top: 7px;
+    left: 7px;
+    transition: 0.2s;
+  }
+  
+  .fill:hover::after {
+    top: 0px;
+    left: 0px;
+  }
+  /* End of Fill Button  */
+  img{    
+      height: 270px;
+  }
+  .big-container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    align-self: center;
+  }
+
+@media screen and (min-width:600px) {
+    #menuToggle{
+        display: none;
+    }
+}
+@media screen and (max-width:600px) {
+    .topnav{
+        display: none;
+    }
+    #menuToggle{
+        display: block;
+    }
+    body{
+        background-color: bisque;
+    }
+} 
+@media screen and (max-width:950px) {
+    body{
+        background-color: wheat;
+    }
+    .big-container{
+       flex-direction: column;
+    }
+    .card{
+      align-self: center;
+    }
+    
+  }
+
+.animated-title{
+   background-color: #04AA6D; 
+   position: relative;
+   left: 30%;
+   text-align: center;
+   border-radius: 30px;
+   width: 40%;
+   animation: appear 7s;
+   color:white;
+}
+#menuToggle
+{
+  position: relative;
+
+  
+  z-index: 1;
+  
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+#menuToggle a
+{
+  text-decoration: none;
+  color: #232323;
+  
+  transition: color 0.3s ease;
+}
+
+#menuToggle a:hover
+{
+  color: tomato;
+}
+
+
+#menuToggle input
+{
+  display: block;
+  width: 40px;
+  height: 32px;
+  position: absolute;
+  top: -7px;
+  left: -5px;
+  
+  cursor: pointer;
+  
+  opacity: 0; /* hide this */
+  z-index: 2; /* and place it over the hamburger */
+  
+  -webkit-touch-callout: none;
+}
+
+/*
+ * Just a quick hamburger
+ */
+#menuToggle span
+{
+  display: block;
+  width: 33px;
+  height: 4px;
+  margin-bottom: 5px;
+  position: relative;
+  
+  background:blueviolet;
+  border-radius: 3px;
+  
+  z-index: 1;
+  
+  transform-origin: 4px 0px;
+  
+  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+              background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+              opacity 0.55s ease;
+}
+
+#menuToggle span:first-child
+{
+  transform-origin: 0% 0%;
+}
+
+#menuToggle span:nth-last-child(2)
+{
+  transform-origin: 0% 100%;
+}
+
+/* 
+ * Transform all the slices of hamburger
+ * into a crossmark.
+ */
+#menuToggle input:checked ~ span
+{
+  opacity: 1;
+  transform: rotate(45deg) translate(-2px, -1px);
+  background: #232323;
+}
+
+/*
+ * But let's hide the middle one.
+ */
+#menuToggle input:checked ~ span:nth-last-child(3)
+{
+  opacity: 0;
+  transform: rotate(0deg) scale(0.2, 0.2);
+}
+
+/*
+ * Ohyeah and the last one should go the other direction
+ */
+#menuToggle input:checked ~ span:nth-last-child(2)
+{
+  transform: rotate(-45deg) translate(0, -1px);
+}
+
+/*
+ * Make this absolute positioned
+ * at the top left of the screen
+ */
+#menu
+{
+  position: absolute;
+  width: 200px;
+  margin: -100px 0 0 -50px;
+  padding: 50px;
+  padding-top: 125px;
+  
+  background: #7fb186;
+  list-style-type: none;
+  -webkit-font-smoothing: antialiased;
+  /* to stop flickering of text in safari */
+  
+  transform-origin: 0% 0%;
+  transform: translate(-100%, 0);
+  
+  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+}
+
+#menu li
+{
+  padding: 10px 0;
+  font-size: 22px;
+}
+
+/*
+ * And let's slide it in from the left
+ */
+#menuToggle input:checked ~ ul
+{
+  transform: none;
+}
+@keyframes appear{
+    from{
+        background-color: rgba(0, 0, 0, 0);
+        color: black;
+    }
+    to{
+        background-color: #04AA6D;
+        color:white
+    }
+}

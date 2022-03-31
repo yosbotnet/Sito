@@ -1,0 +1,31 @@
+{
+	"folders": [
+		{
+			"path": "js"
+		},
+		{
+			"path": "pages"
+		},
+		{
+			"path": "tabella"
+		},
+		{
+			"path": "backend"
+		},
+		{
+			"path": "cgi-bin"
+		},
+		{
+			"path": "compito"
+		},
+		{
+			"path": "css"
+		},
+		{
+			"path": "error"
+		},
+		{
+			"path": "img"
+		}
+	]
+}

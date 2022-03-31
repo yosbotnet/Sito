@@ -1,0 +1,123 @@
+.container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+}
+.topnav {
+    background-color: #333;
+    overflow: hidden;
+  }
+  .topnav a {
+    float: right;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+  }
+  .topnav a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+  .topnav a.active {
+    float: left;
+    background-color: #04AA6D;
+    color: white;
+  }
+.center{
+  align-items: center;
+  justify-content: center;
+}
+
+.card{
+  width: 350px;
+  height: 550px;
+  border-color:darkviolet;
+  border-width: thin;
+  border-style: solid;
+  display: flex;
+  padding: 10px;
+  margin: auto;
+  margin-top: 10px;
+  border-radius: 1px;
+  justify-content: space-between;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.btn_holder{
+    justify-content: flex-end;    
+    display: flex;
+    flex-direction: column;
+}
+button{
+    margin: 50px;
+    font-family: inherit;
+    width: 60%;
+    height: 30px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.fill {
+  font-size: 14px;
+  font-weight: 200;
+  letter-spacing: 1px;
+  padding: 10px;
+  outline: 0;
+  border: 1px solid black;
+  cursor: pointer;
+  position: relative;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.fill::after {
+  content: "";
+  background-color: #ffe54c;
+  width: 100%;
+  z-index: -1;
+  position: absolute;
+  height: 100%;
+  top: 7px;
+  left: 7px;
+  transition: 0.2s;
+}
+
+.fill:hover::after {
+  top: 0px;
+  left: 0px;
+}
+img{    
+    height: 270px;
+    width: 100%;
+}
+.big-container{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  align-self: center;
+}
+
+  
+.animated-title{
+ background-color: #04AA6D; 
+ position: relative;
+ left: 30%;
+ text-align: center;
+ border-radius: 30px;
+ width: 40%;
+ animation: appear 7s;
+ color:white;
+}
+
+footer {
+  text-align: center;
+  padding: 3px;
+  background-color: DarkSalmon;
+  color: white;
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+}
