@@ -19,23 +19,22 @@
             </tr>
             <?php
             require '../backend/functions.php';
-            $pdo = new PDO("mysql:host=localhost;port=7777","root","mysql");
-            $pdo->exec("use eserciziologin");
             if(isset($_COOKIE['COOK'])){
                 if(!verify($_COOKIE['COOK'])){
                     exit();
                 }
                 $c=content($_COOKIE['COOK']);
                 $utente=$c->Utente;
-                $carrello = $pdo->query("select ID_PROD,QTA,PREZZO,prodotto.NOME from ordine inner join prodotto on ordine.id_prod = prodotto.cod inner join utente on ordine.id_utente = utente.codice and utente.codice = '$utente'");
-                $tab = $carrello->fetchAll(PDO::FETCH_ASSOC);
-                //var_dump($tab);
-                
+                //$carrello = $pdo->query("select ID_PROD,QTA,PREZZO,prodotto.NOME from ordine inner join prodotto on ordine.id_prod = prodotto.cod inner join utente on ordine.id_utente = utente.codice and utente.codice = '$utente'");
+                $carrello = json_decode($_COOKIE["cart"]);
+                $tab = $carrello;               
                 foreach($tab as $t){
                     echo "<tr>";
-                    foreach($t as $l){
-                        echo "<td>".$l."</td>";
-                    }
+                    $id = $t->id;
+                    $qty = $t->qty;
+                    $prezzo = $t->prezzo;
+                    $nome= $t->nome;
+                    echo "<td>$id</td><td>$qty</td><td>$nome</td><td>$prezzo</td>";                    
                     echo "</tr>";
                 }
             }
