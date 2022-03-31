@@ -107,7 +107,6 @@ function genCards(){
           REQTYPE:"Get",
         },
         success: function( result ) {
-          //console.log(result);
           let prodotti=JSON.parse(result);
          ReactDOM.render(
             prodotti.map((p)=>{return <Card key={p.COD} id={p.COD} img={p.LINK} testo={p.DES}></Card>}),domContainer

@@ -1,3 +1,11 @@
+class preOrder{
+  constructor(id,qty,nome,prezzo){
+      this.id = id;
+      this.qty = qty;
+      this.nome = nome;
+      this.prezzo = prezzo;
+  }
+}
 function getRndInteger(min, max) {
     return Math.floor(Math.random() * (max - min) ) + min;
 }
@@ -33,3 +41,10 @@ function getCookie(name) {
     const parts = value.split(`; ${name}=`);
     if (parts.length === 2) return parts.pop().split(';').shift();
   }
+function addCookie(name, path, domain,value){
+  delete_cookie(name,path,domain);
+  const d = new Date();
+  d.setTime(d.getTime() + (365*24*60*60*1000));
+  let expires = "expires="+ d.toUTCString();
+  document.cookie = name + "=" + value + ";" + expires + ";path=/";
+}
