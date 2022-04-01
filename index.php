@@ -28,30 +28,6 @@
             ?>
             <a href="pages/carrello.php">Carrello</a>
             <div id="carrello"></div>
-            <!--
-            <div class="cart-box">
-                <table>
-                    <tr><td>Numero</td><td>:</td><td>1</td></tr>
-                    <tr><td>Costo</td><td>:</td><td>30</td></tr>
-                </table>
-                <div class="shop">
-                    <img class="cart-img" src="img/cart.png"></img>
-                    <div class="cart-preview">
-                        <div class="cart-row">
-                            <img src="img/based.jpg"></img>
-                            <div class="info">
-                                <p>Bimba</p>
-                                <b>120€</b>
-                            </div>
-                            <div class="total">
-                                <p>3n</p>
-                                <p>69€<p>
-                            </div>
-                            <a>x</a>
-                        </div>
-                    </div>
-                </div>
-            -->
             </div>
         </div>
         <h1>BARO'S COPIUM</h1>

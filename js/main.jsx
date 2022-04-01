@@ -27,12 +27,16 @@ class Cart extends React.Component {
   }
   render() { 
     var c = JSON.parse(getCookie("cart"))
+    var sum = 0;
+    c.forEach(i => {
+      sum += parseInt(i.prezzo);
+    });
     return ( 
         <div className="cart-box">
            <table>
              <tbody>
               <tr><td>Numero</td><td>:</td><td>{c.length}</td></tr>
-                <tr><td>Costo</td><td>:</td><td>92€</td></tr>
+                <tr><td>Costo</td><td>:</td><td>{sum+'€'}</td></tr>
              </tbody>  
             </table>
             <div className="shop" onMouseOver={this.reRender}>
