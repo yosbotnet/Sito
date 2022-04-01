@@ -34,7 +34,8 @@
         <div class="big-container" id="main">
             
         </div>
-        <footer>           
+        
+        <footer>   
             <?php
             require "backend/functions.php";
                 if(!isset($_COOKIE["COOK"])){

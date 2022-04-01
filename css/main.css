@@ -7,7 +7,6 @@
   position: relative;
 }
 .topnav {
-    background-color: #55aba7;
     overflow: hidden;
   }
 .topnav a {
@@ -17,10 +16,11 @@
   padding: 14px 16px;
   text-decoration: none;
   font-size: 17px;
+  text-decoration: underline 0.15em rgba(255, 255, 255, 0);
+  transition: text-decoration-color 300ms;
 }
 .topnav a:hover {
-  background-color: #ddd;
-  color: black;
+  text-decoration-color: rgba(0, 0, 0, 1);
 }
 .topnav a.active {
   float: left;
@@ -52,6 +52,7 @@
     justify-content: flex-end;    
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
 img{    
@@ -68,8 +69,7 @@ img{
 footer {
   text-align: center;
   padding: 3px;
-  background-color: #55aba7;
-  color: white;
+  color: black;
   position: absolute;
   bottom: 0px;
   height: 120px;
