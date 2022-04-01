@@ -65,12 +65,15 @@ h1{
   border: 1px rgb(5, 51, 92) solid;
   position: absolute;
   width: 300px;
-  height: 300px;
+  min-height: 300px;
   top:50px;
-  right:170px;
+  right:200px;
   z-index: 3;
   background-color: whitesmoke;
   color: black;
+}
+.cart-preview .c{
+  width:300px;background-color:blue;height:30px;padding:0px
 }
 .cart-preview *{
   opacity:1;

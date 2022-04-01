@@ -5,36 +5,46 @@ function addProduct(ID,QTY,prezzo,nome){
         })
         cart.push(new preOrder(ID,QTY,nome,prezzo));       
         addCookie("cart","/","localhost",JSON.stringify(cart));
+}
+function checkout(){
+  console.log("scam");
+}
+function removeProduct(ID){
+  cart= cart.filter((obj)=>{
+    return obj.id != ID;
+  })
+  addCookie("cart","/","localhost",JSON.stringify(cart));
+}
+class Cart extends React.Component {
+  constructor(props) {
+      super(props);
+      this.state = {  
+        
+      }
   }
-  class Cart extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {  
-          
-        }
-    }
-    reRender = ()=>{
-      this.forceUpdate();
-    }
-    render() { 
-      var c = JSON.parse(getCookie("cart"))
-      return ( 
-          <div className="cart-box">
-             <table>
-               <tbody>
-                <tr><td>Numero</td><td>:</td><td>{c.length}</td></tr>
-                  <tr><td>Costo</td><td>:</td><td>92€</td></tr>
-               </tbody>  
-              </table>
-              <div className="shop" onMouseOver={this.reRender}>
-                  <img className="cart-img" alt="" src="img/cart.png"></img>
-                  <div className="cart-preview">
-                      <Rows></Rows>
-                  </div>
-              </div> 
-          </div>
-       );
-    }
+  reRender = ()=>{
+    this.forceUpdate();
+  }
+  render() { 
+    var c = JSON.parse(getCookie("cart"))
+    return ( 
+        <div className="cart-box">
+           <table>
+             <tbody>
+              <tr><td>Numero</td><td>:</td><td>{c.length}</td></tr>
+                <tr><td>Costo</td><td>:</td><td>92€</td></tr>
+             </tbody>  
+            </table>
+            <div className="shop" onMouseOver={this.reRender}>
+                <img className="cart-img" alt="" src="img/cart.png"></img>
+                <div className="cart-preview">
+                    <Rows></Rows>
+                    <a className="c" onClick={()=>checkout()}>Checkout</a>
+                </div>
+            </div> 
+        </div>
+     );
+  }
 }
 function Rows() {
     if(!get_cookie("cart")){
@@ -54,7 +64,7 @@ function Rows() {
                         <p>{r.qty + 'x'}</p>
                         <p>{r.qty*r.prezzo + '€'}</p>
                     </div>
-                    <a>x</a>
+                    <a onClick={()=>removeProduct(r.id)}>x</a>
                 </div>
             )
         })

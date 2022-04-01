@@ -9,20 +9,6 @@ class preOrder{
 function getRndInteger(min, max) {
     return Math.floor(Math.random() * (max - min) ) + min;
 }
-function getCard(product){
-  cardN = product.COD;
-  prodName= product.NOME;
-  prezzo = product.PREZZO;
-  link= product.LINK;
-    return "<div class=\"container\" id=\"card-"+ cardN+"\">"+
-           "<div class=\"card\">"+
-           "<img id=\""+cardN+"\" src=\""+link+"\">"+
-           "<p id=\"testo-"+cardN+"\">"+prodName+"</p>"+
-           "<div class=\"btn_holder\">"+
-           "<input type='text' id='qta"+cardN+"'>"+
-           "<button class=\"fill\" id=\"bot\" onclick=\"addProduct("+cardN+","+"document.getElementById('qta"+cardN+"').value"+")\" >CLICK</button>"+
-           "</div></div></div>\n"
-}
 function delete_cookie( name, path, domain ) {
     if( get_cookie( name ) ) {
       document.cookie = name + "=" +
@@ -40,7 +26,7 @@ function getCookie(name) {
     const value = `; ${document.cookie}`;
     const parts = value.split(`; ${name}=`);
     if (parts.length === 2) return parts.pop().split(';').shift();
-  }
+}
 function addCookie(name, path, domain,value){
   delete_cookie(name,path,domain);
   const d = new Date();
