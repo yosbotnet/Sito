@@ -27,6 +27,8 @@
                 }
             ?>
             <a href="pages/carrello.php">Carrello</a>
+            <div id="carrello"></div>
+            <!--
             <div class="cart-box">
                 <table>
                     <tr><td>Numero</td><td>:</td><td>1</td></tr>
@@ -36,11 +38,20 @@
                     <img class="cart-img" src="img/cart.png"></img>
                     <div class="cart-preview">
                         <div class="cart-row">
-                            <img src="img/0.jpg"></img>
-                            <p> bimba</p>
+                            <img src="img/based.jpg"></img>
+                            <div class="info">
+                                <p>Bimba</p>
+                                <b>120€</b>
+                            </div>
+                            <div class="total">
+                                <p>3n</p>
+                                <p>69€<p>
+                            </div>
+                            <a>x</a>
                         </div>
                     </div>
                 </div>
+            -->
             </div>
         </div>
         <h1>BARO'S COPIUM</h1>
@@ -66,5 +77,6 @@
             ?>
         </footer>
     </body>
-    <script type="text/babel" src="js/test.jsx"></script>
+    <script type="text/babel" src="js/main.jsx"></script>
+    
 </html>

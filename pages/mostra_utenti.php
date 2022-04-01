@@ -3,7 +3,6 @@
     <link rel="stylesheet" href="../css/mostra.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="../js/fn.js"></script>
-    <script src="../js/mostra.js"></script>
     <title>Utenti</title>
     </head>
     <body>

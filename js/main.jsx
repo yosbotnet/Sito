@@ -1,11 +1,65 @@
 var cart = [];
-function addProduct(ID,QTY,nome,prezzo){
+function addProduct(ID,QTY,prezzo,nome){
         cart= cart.filter((obj)=>{
           return obj.id != ID;
         })
         cart.push(new preOrder(ID,QTY,nome,prezzo));       
         addCookie("cart","/","localhost",JSON.stringify(cart));
   }
+  class Cart extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {  
+          
+        }
+    }
+    reRender = ()=>{
+      this.forceUpdate();
+    }
+    render() { 
+      var c = JSON.parse(getCookie("cart"))
+      return ( 
+          <div className="cart-box">
+             <table>
+               <tbody>
+                <tr><td>Numero</td><td>:</td><td>{c.length}</td></tr>
+                  <tr><td>Costo</td><td>:</td><td>92€</td></tr>
+               </tbody>  
+              </table>
+              <div className="shop" onMouseOver={this.reRender}>
+                  <img className="cart-img" alt="" src="img/cart.png"></img>
+                  <div className="cart-preview">
+                      <Rows></Rows>
+                  </div>
+              </div> 
+          </div>
+       );
+    }
+}
+function Rows() {
+    if(!get_cookie("cart")){
+      return false;
+    }
+    var c = JSON.parse(getCookie("cart"));
+    return ( 
+        c.map((r)=>{
+            return(
+                <div className="cart-row" key={r.id}>
+                    <img src="img/based.jpg" alt=""></img>
+                    <div className="info">
+                        <p>{r.nome}</p>
+                        <b>{r.prezzo + '€'}</b>
+                    </div>
+                    <div className="total">
+                        <p>{r.qty + 'x'}</p>
+                        <p>{r.qty*r.prezzo + '€'}</p>
+                    </div>
+                    <a>x</a>
+                </div>
+            )
+        })
+     );
+}
   class Counter extends React.Component{
       constructor(props){
           super(props);
@@ -81,7 +135,7 @@ function addProduct(ID,QTY,nome,prezzo){
           )
       }
   }
-  
+  ReactDOM.render(<Cart></Cart>,document.querySelector('#carrello'));
   var prodotti;
   $.ajax({
     url: "/backend/product.php",
