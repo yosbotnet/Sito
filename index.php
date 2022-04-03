@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html style="overflow-x:hidden;">
     <head>
         <title>Cards</title>
         <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
@@ -9,6 +9,7 @@
         <link rel="stylesheet" href="css/main.css"> 
         <link rel="stylesheet" href="css/test.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdn.tailwindcss.com"></script>
         <script src="js/fn.js"></script>
     </head>
     <body>       
