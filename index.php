@@ -32,6 +32,12 @@
             </div>
         </div>
         <h1>BARO'S COPIUM</h1>
+        <div id="overlay" onclick="off()">
+            <h1 id="nomeEsp"></h1>
+            <p id="testoEsp"></p>
+            <img id="imgEsp" src="" alt="">
+            <p id="prezzoEsp"></p>
+        </div>
         <div class="big-container" id="main">
             
         </div>

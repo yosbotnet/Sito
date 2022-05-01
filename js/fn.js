@@ -62,3 +62,13 @@ function changePerms(cod){
       }
     });
 }
+function on(nome,img,testo,prezzo){
+  document.getElementById("overlay").style.display = "flex";
+  document.getElementById("nomeEsp").innerText=nome;
+  document.getElementById("testoEsp").innerText=testo;
+  document.getElementById("imgEsp").src=img;
+  document.getElementById("prezzoEsp").innerText=prezzo+"€";
+}
+function off(){
+  document.getElementById("overlay").style.display = "none";
+}

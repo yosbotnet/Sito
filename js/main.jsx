@@ -26,6 +26,9 @@ class Cart extends React.Component {
     this.forceUpdate();
   }
   render() { 
+    if(!get_cookie("cart")){
+      addCookie("cart","/","localhost","[]");
+    }
     var c = JSON.parse(getCookie("cart"))
     var sum = 0;
     c.forEach(i => {
@@ -40,7 +43,7 @@ class Cart extends React.Component {
              </tbody>  
             </table>
             <div className="shop" onMouseOver={this.reRender}>
-                <img className="cart-img" alt="" src="img/cart.png"></img>
+                <img  className="cart-img" alt="" src="img/cart.png"></img>
                 <div className="cart-preview">
                     <Rows></Rows>
                     <a className="c" onClick={()=>checkout()}>Checkout</a>
@@ -113,8 +116,8 @@ function Rows() {
       render(){
           return(
               <div className="card">
-                  <img id={this.props.id} src={this.props.img}></img>
-                      <p>{this.props.testo}</p>
+                  <img onClick={()=>on(this.props.nome,this.props.img, this.props.testo,this.props.prezzo)} id={this.props.id} src={this.props.img}></img>
+                      <p>{this.props.testo.substring(0,100)}</p>
                       <div className="btn_holder">
                           <Counter ref={this.counter} prezzo={this.props.prezzo} nome={this.props.nome}></Counter>                    
                           <Wallet id={this.props.id} c={this.counter} prezzo={this.props.prezzo} nome={this.props.nome}></Wallet>
@@ -146,7 +149,7 @@ function Rows() {
             console.log(result);
             let prodotti=JSON.parse(result);
             ReactDOM.render(
-              prodotti.map((p)=>{return <Card key={p.COD} nome={p.NOME} id={p.COD} img={p.LINK} testo={p.DES} prezzo={p.PREZZO}></Card>}),domContainer
+              prodotti.map((p)=>{return <Card key={p.COD} nome={p.NOME} id={p.COD} img={p.LINK} testo={p.DES} prezzo={p.PREZZO} testoEng={p.TESTOENG} nomeEng={p.NOMEENG}></Card>}),domContainer
             )
             if(!get_cookie("COOK")){
               $('button').prop('disabled', true);
