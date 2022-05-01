@@ -72,3 +72,17 @@ function on(nome,img,testo,prezzo){
 function off(){
   document.getElementById("overlay").style.display = "none";
 }
+function changeLang(){
+  if(getCookie("lang")=="it"){
+    addCookie("lang","/","localhost","en");
+    $('[lang="en"]').show();
+    $('[lang="it"]').hide();
+    return;
+  }
+  if(getCookie("lang")=="en"){
+    addCookie("lang","/","localhost","it");
+    $('[lang="it"]').show();
+    $('[lang="en"]').hide();
+    return;
+  }
+}

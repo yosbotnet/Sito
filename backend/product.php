@@ -9,22 +9,12 @@
     if(!$verifica){
         $pdo->exec("CREATE DATABASE eserciziologin");
         $pdo->exec("USE eserciziologin");
-        $pdo->exec("CREATE TABLE utente(codice varchar(32) primary key, nome text, cognome text, mail text, password text, perms int)");
-        $pdo->exec("CREATE TABLE IF NOT EXISTS PRODOTTO(COD INT PRIMARY KEY not null AUTO_INCREMENT,NOME TEXT,PREZZO INT,DES text,LINK text)");
-        $pdo->exec("CREATE TABLE IF NOT EXISTS ORDINE(ID_PROD INT,ID_UTENTE VARCHAR(32),QTA INT,CostoTot int, PRIMARY KEY(ID_PROD,ID_UTENTE),FOREIGN KEY(ID_PROD) REFERENCES PRODOTTO(COD),FOREIGN KEY(ID_UTENTE) REFERENCES UTENTE(CODICE))");
-        $pdo->exec("insert into prodotto values(1,'CringeVengers',70,'>War is le bad','img/1.webp')");
-        $pdo->exec("insert into prodotto values(2,'King',35,'nationalist king','img/0.webp')");
-        $pdo->exec("insert into utente values('cfcd208495d565ef66e7dff9f98764da','admin','admin','admin@admin.admin','21232f297a57a5a743894a0e4a801fc3',1)");
+        createTables($pdo);
     }else{
         $array = $pdo->query("show tables")->fetchAll(PDO::FETCH_COLUMN);
         foreach($TABELLE as $t){
             if(!contains($t,$array)){
-                $pdo->exec("CREATE TABLE utente(codice varchar(32) primary key, nome text, cognome text, mail text, password text, perms int)");
-                $pdo->exec("CREATE TABLE IF NOT EXISTS PRODOTTO(COD INT PRIMARY KEY not null AUTO_INCREMENT,NOME TEXT,PREZZO INT,des text,LINK text)");
-                $pdo->exec("CREATE TABLE IF NOT EXISTS ORDINE(ID_PROD INT,ID_UTENTE VARCHAR(32),QTA INT,CostoTot int, PRIMARY KEY(ID_PROD,ID_UTENTE),FOREIGN KEY(ID_PROD) REFERENCES PRODOTTO(COD),FOREIGN KEY(ID_UTENTE) REFERENCES UTENTE(CODICE))");
-                $pdo->exec("insert into prodotto values(1,'CringeVengers',70,'>War is le bad','img/1.webp')");
-                $pdo->exec("insert into prodotto values(2,'King',35,'nationalist king','img/0.webp')");
-                $pdo->exec("insert into utente values('cfcd208495d565ef66e7dff9f98764da','admin','admin','admin@admin.admin','21232f297a57a5a743894a0e4a801fc3',1)");
+               createTables($pdo);
             }
         }
     }
@@ -169,6 +159,15 @@
             return true;
         }
         return false;
+    }
+    function createTables($pdo){
+        $pdo->exec("CREATE TABLE utente(codice varchar(32) primary key, nome text, cognome text, mail text, password text, perms int)");
+        $pdo->exec("CREATE TABLE IF NOT EXISTS PRODOTTO(COD INT PRIMARY KEY not null AUTO_INCREMENT,NOME TEXT,ENGNOME TEXT,PREZZO INT,DES text,ENGDESC TEXT,LINK text)");
+        $pdo->exec("CREATE TABLE IF NOT EXISTS ORDINE(ID_PROD INT,ID_UTENTE VARCHAR(32),QTA INT,CostoTot int, PRIMARY KEY(ID_PROD,ID_UTENTE),FOREIGN KEY(ID_PROD) REFERENCES PRODOTTO(COD),FOREIGN KEY(ID_UTENTE) REFERENCES UTENTE(CODICE))");
+        $pdo->exec("insert into prodotto values(1,'testo ita','testo inglese',70,'>War is le bad',' i dont want that','img/1.webp')");
+        $pdo->exec("insert into prodotto values(2,'King','Re',35,'test','nationalist king','img/0.webp')");
+        $pdo->exec("insert into utente values('cfcd208495d565ef66e7dff9f98764da','admin','admin','admin@admin.admin','21232f297a57a5a743894a0e4a801fc3',1)");
+ 
     }
     fclose($f);
     $pdo = null;

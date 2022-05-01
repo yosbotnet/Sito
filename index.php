@@ -22,12 +22,21 @@
                     if(isset($_SESSION["PERMS"])&&$_SESSION["PERMS"]==1){
                         echo '<a href="pages/nuovo_prodotto.php">Prodotto</a><a href="pages/mostra_utenti.php">Mostra utenti</a>';
                     }
+                    setcookie("lang","it",time()+3600000,"/");
                 }else{
                     echo '<a href="pages/login.php">Login</a><a href="pages/registrati.php">Registrati</a>';
                     
                 }
             ?>
-            <a href="pages/carrello.php">Carrello</a>
+            <div class="dropdown">
+                <button class="dropbtn">Lingua
+                <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                  <a onclick="changeLang()">Ita</a>
+                  <a onclick="changeLang()">Eng</a>
+                </div>
+              </div>
             <div id="carrello"></div>
             </div>
         </div>
